@@ -1,5 +1,6 @@
 import React from "react";
 import { FaRegCopyright } from "react-icons/fa";
+import { Link } from "react-router-dom";
 import "./Footer.css";
 
 const Footer = () => {
@@ -9,23 +10,16 @@ const Footer = () => {
 
     return (
         <footer className="text-center">
-            <a href="#" className="link-secondary ">
-                Home
-            </a>
-            <a href="#" className="link-secondary">
-                Items
-            </a>
-            <a href="#" className="link-secondary">
-                About
-            </a>
-            <a href="#" className="link-secondary">
-                Blogs
-            </a>
+            <Link to="/">Home</Link>
+            <Link to="/myitems">My Items</Link>
+            <Link to="/blogs">Blogs</Link>
+            <Link to="/about">About</Link>
+
             <hr className="mx-auto w-50" />
             <p>
                 {" "}
                 <FaRegCopyright className="react-icon"></FaRegCopyright>{" "}
-                {getCurrentYear()} Fabric Store, Inc
+                {getCurrentYear()} Fabric House, Inc
             </p>
         </footer>
     );

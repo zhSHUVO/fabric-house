@@ -3,8 +3,13 @@ footer {
 }
 
 footer a {
+    color: #565e64;
     text-decoration: none;
     padding: 10px;
+}
+
+footer a:hover{
+    color: #FE5A10;
 }
 
 .react-icon {
