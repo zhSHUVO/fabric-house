@@ -20,15 +20,15 @@ const Header = () => {
                             <LinkContainer to="/">
                                 <Nav.Link>Home</Nav.Link>
                             </LinkContainer>
-                            <LinkContainer to="/myitems">
-                                <Nav.Link>My Items</Nav.Link>
-                            </LinkContainer>
+
                             <LinkContainer to="/about">
                                 <Nav.Link>About</Nav.Link>
                             </LinkContainer>
+
                             <LinkContainer to="/blogs">
                                 <Nav.Link>Blogs</Nav.Link>
                             </LinkContainer>
+                            
                         </Nav>
                         <Nav>
                             <LinkContainer to="/login">

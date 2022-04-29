@@ -2,7 +2,7 @@ import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import About from "./pages/About/About";
 import Blogs from "./pages/Blogs/Blogs";
-import Banner from "./pages/Home/Banner/Banner";
+import Home from "./pages/Home/Home";
 import Login from "./pages/Login/Login";
 import MyItems from "./pages/MyItems/MyItems";
 import Footer from "./pages/Universal/Footer/Footer";
@@ -13,7 +13,7 @@ function App() {
         <div>
             <Header></Header>
             <Routes>
-                <Route path="/" element={<Banner></Banner>}></Route>
+                <Route path="/" element={<Home></Home>}></Route>
                 <Route path="/about" element={<About></About>}></Route>
                 <Route path="/login" element={<Login></Login>}></Route>
                 <Route path="/myitems" element={<MyItems></MyItems>}></Route>

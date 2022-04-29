@@ -11,7 +11,6 @@ const Footer = () => {
     return (
         <footer className="text-center">
             <Link to="/">Home</Link>
-            <Link to="/myitems">My Items</Link>
             <Link to="/blogs">Blogs</Link>
             <Link to="/about">About</Link>
 
