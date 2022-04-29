@@ -1,0 +1,12 @@
+footer {
+    color: #565e64;
+}
+
+footer a {
+    text-decoration: none;
+    padding: 10px;
+}
+
+.react-icon {
+    vertical-align: baseline;
+}
