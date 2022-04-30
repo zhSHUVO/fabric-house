@@ -1,6 +1,7 @@
 import React from "react";
 import { Container, Nav, Navbar } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
+import logo from "../../../images/fabric-house.png";
 import "./Header.css";
 
 const Header = () => {
@@ -13,7 +14,9 @@ const Header = () => {
                 variant="light"
             >
                 <Container>
-                    <Navbar.Brand href="#home">Fabric House</Navbar.Brand>
+                    <Navbar.Brand>
+                        <img src={logo} alt="" height="35px" />
+                    </Navbar.Brand>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="me-auto">

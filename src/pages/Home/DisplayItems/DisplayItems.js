@@ -7,12 +7,11 @@ const DisplayItems = () => {
     const [dresses, setDresses] = useDress();
     return (
         <div>
-            <h1>Display {dresses.length} items</h1>
-
+            <h1 className="text-center">Featured Items</h1>
             <div className="container">
                 <div className="row">
                     {dresses.slice(0, 6).map((dress) => (
-                        <div key={dress._id} className="col-sm-6 col-lg-4">
+                        <div key={dress._id} className="col-lg-4">
                             <SingleDress dress={dress}></SingleDress>
                         </div>
                     ))}

@@ -1,0 +1,19 @@
+.nav-link:hover {
+    color: #bd9b6d !important;
+}
+
+.me-auto .active {
+    font-weight: bold;
+    color: #bd9b6d !important;
+}
+
+.manage-btn {
+    background-color: #666664;
+    color: white;
+    border-radius: 5px;
+}
+
+.manage-btn:hover {
+    background-color: #bd9b6d;
+    color: black;
+}
