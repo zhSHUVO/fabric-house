@@ -1,0 +1,12 @@
+form button {
+    background-color: #666664;
+    color: white;
+    border-radius: 5px;
+}
+
+form button:hover {
+    background-color: #bd9b6d;
+    color: black;
+}
+
+

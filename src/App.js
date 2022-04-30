@@ -1,12 +1,12 @@
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import About from "./pages/About/About";
+import Login from "./pages/Account/Login/Login";
 import Register from "./pages/Account/Register/Register";
 import Blogs from "./pages/Blogs/Blogs";
 import DressDetails from "./pages/DressDetails/DressDetails";
 import Home from "./pages/Home/Home/Home";
 import ManageInventory from "./pages/Home/ManageInventory/ManageInventory";
-import Login from "./pages/Login/Login";
 import MyItems from "./pages/MyItems/MyItems";
 import Footer from "./pages/Universal/Footer/Footer";
 import Header from "./pages/Universal/Header/Header";
