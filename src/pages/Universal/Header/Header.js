@@ -34,10 +34,7 @@ const Header = () => {
                         </Nav>
                         <Nav>
                             <LinkContainer to="/login">
-                                <Nav.Link>Login</Nav.Link>
-                            </LinkContainer>
-                            <LinkContainer to="/user">
-                                <Nav.Link>Dank memes</Nav.Link>
+                                <Nav.Link>Account</Nav.Link>
                             </LinkContainer>
                         </Nav>
                     </Navbar.Collapse>
