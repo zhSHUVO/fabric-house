@@ -1,6 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import About from "./pages/About/About";
+import Authorized from "./pages/Account/Authorized/Authorized";
 import Login from "./pages/Account/Login/Login";
 import Register from "./pages/Account/Register/Register";
 import Blogs from "./pages/Blogs/Blogs";
@@ -17,6 +18,7 @@ function App() {
             <Header></Header>
             <Routes>
                 <Route path="/" element={<Home></Home>}></Route>
+                <Route path="/home" element={<Home></Home>}></Route>
                 <Route path="/about" element={<About></About>}></Route>
                 <Route path="/register" element={<Register></Register>}></Route>
                 <Route path="/login" element={<Login></Login>}></Route>
@@ -28,7 +30,14 @@ function App() {
                     path="/dress/:dressId"
                     element={<DressDetails></DressDetails>}
                 ></Route>
-                <Route path="/myitems" element={<MyItems></MyItems>}></Route>
+                <Route
+                    path="/myitems"
+                    element={
+                        <Authorized>
+                            <MyItems></MyItems>
+                        </Authorized>
+                    }
+                ></Route>
                 <Route path="/blogs" element={<Blogs></Blogs>}></Route>
             </Routes>
             <Footer></Footer>

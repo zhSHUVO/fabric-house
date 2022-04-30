@@ -1,22 +1,36 @@
 import React, { useRef } from "react";
 import { Form } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import auth from "../../../firebaseinit";
+import SocialLogin from "../SocialLogin/SocialLogin";
 import "./Login.css";
 
 const Login = () => {
     const emailRef = useRef("");
     const passRef = useRef("");
+    const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || "/home";
+
+    const [signInWithEmailAndPassword, user, loading, error] =
+        useSignInWithEmailAndPassword(auth);
 
     const login = (event) => {
         event.preventDefault();
         const email = emailRef.current.value;
         const pass = passRef.current.value;
         console.log(email, pass);
+        signInWithEmailAndPassword(email, pass);
     };
+
+    if (user) {
+        navigate(from, { replace: true });
+    }
 
     return (
         <div className="form-container">
-            <div className="col-xl-5 col-lg-6 col-md-8 col-sm-10 mx-auto text-center form p-4">
+            <div className="col-xl-5 col-lg-6 col-md-8 col-sm-10 mx-auto text-center form pt-4">
                 <h2 className="form-title mb-4">Login</h2>
                 <Form onSubmit={login} className="mb-2">
                     <Form.Group className="mb-4" controlId="formGroupEmail">
@@ -58,6 +72,7 @@ const Login = () => {
                     </Link>
                 </p>
             </div>
+            <SocialLogin></SocialLogin>
         </div>
     );
 };
