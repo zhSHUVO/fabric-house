@@ -15,25 +15,23 @@ import Header from "./pages/Universal/Header/Header";
 
 function App() {
     return (
-        <div>
+        <div className="app">
             <Header></Header>
             <Routes>
                 <Route path="/" element={<Home></Home>}></Route>
                 <Route path="/home" element={<Home></Home>}></Route>
-                <Route path="/about" element={<About></About>}></Route>
-                <Route path="/register" element={<Register></Register>}></Route>
-                <Route path="/login" element={<Login></Login>}></Route>
-                <Route
-                    path="/forget-pass"
-                    element={<ForgetPass></ForgetPass>}
-                ></Route>
+
                 <Route
                     path="/manageinventory"
                     element={<ManageInventory></ManageInventory>}
                 ></Route>
                 <Route
                     path="/dress/:dressId"
-                    element={<DressDetails></DressDetails>}
+                    element={
+                        <Authorized>
+                            <DressDetails></DressDetails>
+                        </Authorized>
+                    }
                 ></Route>
                 <Route
                     path="/myitems"
@@ -43,7 +41,16 @@ function App() {
                         </Authorized>
                     }
                 ></Route>
+
+                <Route path="/about" element={<About></About>}></Route>
                 <Route path="/blogs" element={<Blogs></Blogs>}></Route>
+
+                <Route path="/register" element={<Register></Register>}></Route>
+                <Route path="/login" element={<Login></Login>}></Route>
+                <Route
+                    path="/forget-pass"
+                    element={<ForgetPass></ForgetPass>}
+                ></Route>
             </Routes>
             <Footer></Footer>
         </div>
