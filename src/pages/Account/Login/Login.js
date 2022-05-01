@@ -57,7 +57,7 @@ const Login = () => {
 
                 <Link
                     className="text-decoration-none text-danger"
-                    to="/reset-pass"
+                    to="/forget-pass"
                 >
                     Forgot Password?
                 </Link>
