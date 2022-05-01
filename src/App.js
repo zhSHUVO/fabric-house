@@ -5,10 +5,12 @@ import Authorized from "./pages/Account/Authorized/Authorized";
 import ForgetPass from "./pages/Account/ForgetPass/ForgetPass";
 import Login from "./pages/Account/Login/Login";
 import Register from "./pages/Account/Register/Register";
+import AddItem from "./pages/AddItem/AddItem";
 import Blogs from "./pages/Blogs/Blogs";
 import DressDetails from "./pages/DressDetails/DressDetails";
 import Home from "./pages/Home/Home/Home";
 import ManageInventory from "./pages/Home/ManageInventory/ManageInventory";
+import ManageItems from "./pages/ManageItems/ManageItems";
 import MyItems from "./pages/MyItems/MyItems";
 import Footer from "./pages/Universal/Footer/Footer";
 import Header from "./pages/Universal/Header/Header";
@@ -38,6 +40,22 @@ function App() {
                     element={
                         <Authorized>
                             <MyItems></MyItems>
+                        </Authorized>
+                    }
+                ></Route>
+                <Route
+                    path="/manageitems"
+                    element={
+                        <Authorized>
+                            <ManageItems></ManageItems>
+                        </Authorized>
+                    }
+                ></Route>
+                <Route
+                    path="/additem"
+                    element={
+                        <Authorized>
+                            <AddItem></AddItem>
                         </Authorized>
                     }
                 ></Route>

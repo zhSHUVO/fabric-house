@@ -32,9 +32,28 @@ const Header = () => {
                             <LinkContainer to="/">
                                 <Nav.Link>Home</Nav.Link>
                             </LinkContainer>
-                            <LinkContainer to="/myitems">
-                                <Nav.Link>My Items</Nav.Link>
-                            </LinkContainer>
+
+                            {user ? (
+                                <LinkContainer to="/myitems">
+                                    <Nav.Link>My Items</Nav.Link>
+                                </LinkContainer>
+                            ) : (
+                                <></>
+                            )}
+                            {user ? (
+                                <LinkContainer to="/additem">
+                                    <Nav.Link>Add New Item</Nav.Link>
+                                </LinkContainer>
+                            ) : (
+                                <></>
+                            )}
+                            {user ? (
+                                <LinkContainer to="/manageitems">
+                                    <Nav.Link>Manage Items</Nav.Link>
+                                </LinkContainer>
+                            ) : (
+                                <></>
+                            )}
 
                             <LinkContainer to="/about">
                                 <Nav.Link>About</Nav.Link>
@@ -45,13 +64,15 @@ const Header = () => {
                             </LinkContainer>
                         </Nav>
                         <Nav>
-                            {
-                                user ?
-                                <button className="btn" onClick={logout}>Log Out</button>
-                                :
+                            {user ? (
+                                <button className="btn" onClick={logout}>
+                                    Log Out
+                                </button>
+                            ) : (
                                 <LinkContainer to="/login">
-                                <Nav.Link>Account</Nav.Link>
-                            </LinkContainer>}
+                                    <Nav.Link>Account</Nav.Link>
+                                </LinkContainer>
+                            )}
                         </Nav>
                     </Navbar.Collapse>
                 </Container>

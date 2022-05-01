@@ -14,6 +14,8 @@ const DressDetails = () => {
             .then((data) => setDress(data));
     }, []);
 
+    
+
     return (
         <div>
             <div className="container mt-5">
