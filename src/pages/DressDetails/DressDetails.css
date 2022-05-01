@@ -4,7 +4,12 @@ button {
     border-radius: 5px;
 }
 
-button:hover {
+form button:hover {
+    background-color: #bd9b6d;
+    color: black;
+}
+
+.details-btn:hover {
     background-color: #bd9b6d;
     color: black;
 }

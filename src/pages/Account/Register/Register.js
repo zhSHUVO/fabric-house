@@ -35,6 +35,7 @@ const Register = () => {
                 <Form onSubmit={reg} className="mb-2">
                     <Form.Group className="mb-4" controlId="formGroupEmail">
                         <Form.Control
+                            className="w-75 d-inline"
                             ref={emailRef}
                             type="email"
                             placeholder="Enter email"
@@ -43,6 +44,7 @@ const Register = () => {
                     </Form.Group>
                     <Form.Group className="mb-4" controlId="formGroupPassword">
                         <Form.Control
+                            className="w-75 d-inline"
                             ref={passRef}
                             type="password"
                             placeholder="Password"
@@ -54,6 +56,7 @@ const Register = () => {
                         controlId="formGroupConfirmPassword"
                     >
                         <Form.Control
+                            className="w-75 d-inline"
                             ref={confirmRef}
                             type="password"
                             placeholder="Confirm Password"

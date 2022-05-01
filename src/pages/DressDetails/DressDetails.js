@@ -1,9 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Form } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 import "./DressDetails.css";
 
 const DressDetails = () => {
+    const restockRef = useRef("");
+
     const { dressId } = useParams();
     const [dress, setDress] = useState({});
 
@@ -14,7 +16,41 @@ const DressDetails = () => {
             .then((data) => setDress(data));
     }, []);
 
-    
+    // original code
+    const updateRestock = (event) => {
+        event.preventDefault();
+        const restock = restockRef.current.value;
+        console.log(restock);
+        const updateRestockValue = { restock };
+        const url = `http://localhost:5000/dress/${dressId}`;
+        fetch(url, {
+            method: "PUT",
+            headers: {
+                "content-type": "application/json",
+            },
+            body: JSON.stringify(updateRestockValue),
+        })
+            .then((res) => res.json())
+            .then((data) => {
+                console.log("value updated", data);
+                event.target.reset();
+            });
+    };
+
+    const decreaseStock = (event) => {
+        event.preventDefault();
+        console.log("clicked");
+        const url = `http://localhost:5000/dress/${dressId}`;
+        fetch(url, {
+            method: "POST",
+            headers: {
+                "content-type": "application/json",
+                Accept: "application/json",
+            },
+        })
+            .then((res) => res.json())
+            .then(console.log);
+    };
 
     return (
         <div>
@@ -24,11 +60,15 @@ const DressDetails = () => {
                         <img className=" w-75" src={dress.img} alt="" />
                     </div>
                     <div className="text-center pt-5 col-lg-6 col-sm-12">
+                        <p>Id: {dress._id}</p>
                         <p>{dress.name}</p>
                         <p>{dress.description}</p>
-                        <p>Price: {dress.price}</p>
+                        <p>Price: {dress.price}$</p>
                         <p>Available: {dress.quantity} pieces</p>
-                        <button className="details-btn border-0 pt-2 mt-3 pb-2 ps-3 pe-3">
+                        <button
+                            onClick={decreaseStock}
+                            className="details-btn border-0 pt-2 mt-3 pb-2 ps-3 pe-3"
+                        >
                             Delivered
                         </button>
                     </div>
@@ -39,14 +79,18 @@ const DressDetails = () => {
                 <div className="row ">
                     <div className="col">
                         <h5 className="text-center">Restock Item</h5>
-                        <Form className="text-center  mb-2">
+                        <Form
+                            onSubmit={updateRestock}
+                            className="text-center  mb-2"
+                        >
                             <Form.Group
                                 className="mb-2"
                                 controlId="formRestock"
                             >
                                 <Form.Control
                                     className="text-center w-75 d-inline"
-                                    type="text"
+                                    ref={restockRef}
+                                    type="number"
                                     placeholder="Amount"
                                     required
                                 />
