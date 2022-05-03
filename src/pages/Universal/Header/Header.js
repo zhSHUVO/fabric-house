@@ -41,7 +41,7 @@ const Header = () => {
                                 <></>
                             )}
                             {user ? (
-                                <LinkContainer to="/additem">
+                                <LinkContainer to="/addnewitem">
                                     <Nav.Link>Add New Item</Nav.Link>
                                 </LinkContainer>
                             ) : (

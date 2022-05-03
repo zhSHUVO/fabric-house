@@ -1,0 +1,9 @@
+.img-table {
+    max-width: 100px;
+}
+
+@media (max-width: 768px) {
+    .hidden-column {
+        display: none;
+    }
+}

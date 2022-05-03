@@ -5,13 +5,14 @@ import Authorized from "./pages/Account/Authorized/Authorized";
 import ForgetPass from "./pages/Account/ForgetPass/ForgetPass";
 import Login from "./pages/Account/Login/Login";
 import Register from "./pages/Account/Register/Register";
-import AddItem from "./pages/AddItem/AddItem";
+import AddNewItem from "./pages/AddNewItem/AddNewItem";
 import Blogs from "./pages/Blogs/Blogs";
 import DressDetails from "./pages/DressDetails/DressDetails";
 import Home from "./pages/Home/Home/Home";
 import ManageInventory from "./pages/Home/ManageInventory/ManageInventory";
 import ManageItems from "./pages/ManageItems/ManageItems";
 import MyItems from "./pages/MyItems/MyItems";
+import NotFound from "./pages/Universal/404/NotFound";
 import Footer from "./pages/Universal/Footer/Footer";
 import Header from "./pages/Universal/Header/Header";
 
@@ -25,7 +26,11 @@ function App() {
 
                 <Route
                     path="/manageinventory"
-                    element={<ManageInventory></ManageInventory>}
+                    element={
+                        <Authorized>
+                            <ManageInventory></ManageInventory>
+                        </Authorized>
+                    }
                 ></Route>
                 <Route
                     path="/dress/:dressId"
@@ -52,10 +57,10 @@ function App() {
                     }
                 ></Route>
                 <Route
-                    path="/additem"
+                    path="/addnewitem"
                     element={
                         <Authorized>
-                            <AddItem></AddItem>
+                            <AddNewItem></AddNewItem>
                         </Authorized>
                     }
                 ></Route>
@@ -69,6 +74,7 @@ function App() {
                     path="/forget-pass"
                     element={<ForgetPass></ForgetPass>}
                 ></Route>
+                <Route path="*" element={<NotFound></NotFound>}></Route>
             </Routes>
             <Footer></Footer>
         </div>

@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Form } from "react-bootstrap";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import "./DressDetails.css";
 
 const DressDetails = () => {
@@ -14,11 +14,11 @@ const DressDetails = () => {
         fetch(url)
             .then((res) => res.json())
             .then((data) => setDress(data));
-    }, []);
+    }, [dressId]);
 
     // original code
     const updateRestock = (event) => {
-        event.preventDefault();
+        // event.preventDefault();
         const restock = restockRef.current.value;
         console.log(restock);
         const updateRestockValue = { restock };
@@ -28,7 +28,7 @@ const DressDetails = () => {
             headers: {
                 "content-type": "application/json",
             },
-            body: JSON.stringify(updateRestockValue),
+            body: updateRestockValue,
         })
             .then((res) => res.json())
             .then((data) => {
@@ -38,7 +38,6 @@ const DressDetails = () => {
     };
 
     const decreaseStock = (event) => {
-        event.preventDefault();
         console.log("clicked");
         const url = `http://localhost:5000/dress/${dressId}`;
         fetch(url, {
@@ -102,6 +101,15 @@ const DressDetails = () => {
                     </div>
                 </div>
             </div>
+
+            <div className="text-center">
+                <Link to="/manageinventory">
+                    <button className="manage-btn border-0 mt-5 pt-2 pb-2 ps-3 pe-3">
+                        Manage Inventory
+                    </button>
+                </Link>
+            </div>
+
         </div>
     );
 };
