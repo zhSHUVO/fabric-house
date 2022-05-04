@@ -6,6 +6,27 @@ import "./ManageInventory.css";
 
 const ManageInventory = ({ dress }) => {
     const [dresses, setDresses] = useDress();
+
+    const deleteItem = (id) => {
+        const proceed = window.confirm("Are you sure you want to delete?");
+        if (proceed) {
+            console.log("deleting ", id);
+            const url = `http://localhost:5000/dress/${id}`;
+
+            fetch(url, {
+                method: "DELETE",
+            })
+                .then((res) => res.json())
+                .then((data) => {
+                    if (data.deletedCount > 0) {
+                        const remaining = dresses.filter(
+                            (dress) => dress._id !== id
+                        );
+                        setDresses(remaining);
+                    }
+                });
+        }
+    };
     return (
         <div>
             <div className="p-3 text-center">
@@ -35,7 +56,12 @@ const ManageInventory = ({ dress }) => {
                                 <td className="hidden-column">{dress.price}</td>
                                 <td>{dress.quantity}</td>
                                 <td>
-                                    <button className="border-0">Delete</button>
+                                    <button
+                                        onClick={() => deleteItem(dress._id)}
+                                        className="border-0"
+                                    >
+                                        Delete
+                                    </button>
                                 </td>
                             </tr>
                         ))}
