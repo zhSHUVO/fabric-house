@@ -18,7 +18,7 @@ const DressDetails = () => {
 
     // original code
     const updateRestock = (event) => {
-        // event.preventDefault();
+        event.preventDefault();
         const restock = restockRef.current.value;
         console.log(restock);
         const updateRestockValue = { restock };
@@ -28,7 +28,7 @@ const DressDetails = () => {
             headers: {
                 "content-type": "application/json",
             },
-            body: updateRestockValue,
+            body: JSON.stringify(updateRestockValue),
         })
             .then((res) => res.json())
             .then((data) => {
@@ -48,7 +48,7 @@ const DressDetails = () => {
             },
         })
             .then((res) => res.json())
-            .then(console.log);
+            .then((data) => console.log(data));
     };
 
     return (
@@ -64,6 +64,7 @@ const DressDetails = () => {
                         <p>{dress.description}</p>
                         <p>Price: {dress.price}$</p>
                         <p>Available: {dress.quantity} pieces</p>
+                        <p>Supplier: {dress.supplier}</p>
                         <button
                             onClick={decreaseStock}
                             className="details-btn border-0 pt-2 mt-3 pb-2 ps-3 pe-3"
@@ -109,7 +110,6 @@ const DressDetails = () => {
                     </button>
                 </Link>
             </div>
-
         </div>
     );
 };

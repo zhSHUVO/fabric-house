@@ -38,7 +38,7 @@ const AddNewItem = () => {
                         <Form.Control
                             className="w-75 d-inline"
                             type="text"
-                            placeholder="Available Pieces"
+                            placeholder="Item Price"
                             required
                         />
                     </Form.Group>
@@ -47,6 +47,15 @@ const AddNewItem = () => {
                             className="w-75 d-inline"
                             type="text"
                             placeholder="Available Pieces"
+                            required
+                        />
+                    </Form.Group>
+
+                    <Form.Group className="mb-4" controlId="formItemSupplier">
+                        <Form.Control
+                            className="w-75 d-inline"
+                            type="text"
+                            placeholder="Item Supplier"
                             required
                         />
                     </Form.Group>

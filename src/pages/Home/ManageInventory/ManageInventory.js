@@ -35,6 +35,7 @@ const ManageInventory = ({ dress }) => {
                         <tr>
                             <th className="hidden-column">Id</th>
                             <th>Name</th>
+                            <th className="hidden-column">Supplier</th>
                             <th className="hidden-column">Image</th>
                             <th className="hidden-column">Price</th>
                             <th>Quantity</th>
@@ -46,6 +47,9 @@ const ManageInventory = ({ dress }) => {
                             <tr key={dress._id}>
                                 <td className="hidden-column">{dress._id}</td>
                                 <td>{dress.name}</td>
+                                <td className="hidden-column">
+                                    {dress.supplier}
+                                </td>
                                 <td className="img-table hidden-column">
                                     <img
                                         className="w-25"
