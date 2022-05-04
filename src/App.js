@@ -7,7 +7,7 @@ import Login from "./pages/Account/Login/Login";
 import Register from "./pages/Account/Register/Register";
 import AddNewItem from "./pages/AddNewItem/AddNewItem";
 import Blogs from "./pages/Blogs/Blogs";
-import DressDetails from "./pages/DressDetails/DressDetails";
+import DressDetails from "./pages/Details/DressDetails/DressDetails";
 import Home from "./pages/Home/Home/Home";
 import ManageInventory from "./pages/Home/ManageInventory/ManageInventory";
 import ManageItems from "./pages/ManageItems/ManageItems";
@@ -34,11 +34,9 @@ function App() {
                 ></Route>
                 <Route
                     path="/dress/:dressId"
-                    element={
-                        <Authorized>
-                            <DressDetails></DressDetails>
-                        </Authorized>
-                    }
+                    element={<Authorized>
+                        <DressDetails></DressDetails>
+                    </Authorized>}
                 ></Route>
                 <Route
                     path="/myitems"

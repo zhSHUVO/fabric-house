@@ -16,7 +16,7 @@ const SingleDress = ({ dress }) => {
                 <Card.Body>
                     <Card.Title>{name}</Card.Title>
                     <Card.Text>{description}</Card.Text>
-                    <Card.Text>Price: {price}</Card.Text>
+                    <Card.Text>Price: {price}$</Card.Text>
                     <Card.Text>Available: {quantity} pieces</Card.Text>
                     <Card.Text>Supplier: {dress.supplier}</Card.Text>
                     <div className="d-flex justify-content-center align-items-end">
