@@ -76,7 +76,10 @@ const Header = () => {
                         <Nav>
                             {user ? (
                                 <button className="btn" onClick={logout}>
-                                    Log Out
+                                    Logout{" "}
+                                    <span>{user?.email
+                                        ? user?.email
+                                        : user?.displayName}</span>
                                 </button>
                             ) : (
                                 <LinkContainer to="/login">

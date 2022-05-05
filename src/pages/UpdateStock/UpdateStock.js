@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Form } from "react-bootstrap";
 import { Link, useParams } from "react-router-dom";
-import "./UpdateStock.css"
+import "./UpdateStock.css";
 
 const UpdateStock = () => {
     const { dressId } = useParams();
@@ -25,43 +25,44 @@ const UpdateStock = () => {
 
     const updateRestock = (event) => {
         event.preventDefault();
-        console.log("currentStock: ", count);
         const restock = parseInt(restockRef.current.value);
-        console.log("restock: ", restock);
-        const updateRestockValue = { restock, count };
+        const updatedQuentity = count + restock;
+        setCount(updatedQuentity);
+        const updatedQuentityValue = { updatedQuentity };
 
-        if (restock > 0) {
-            const url = `http://localhost:5000/dress/${dressId}`;
-            fetch(url, {
-                method: "PUT",
-                headers: {
-                    "content-type": "application/json",
-                },
-                body: JSON.stringify(updateRestockValue),
-            })
-                .then((res) => res.json())
-                .then((data) => {
-                    console.log("value updated", data);
-                });
-            setCount(count + restock);
-        } else {
-            setCount(count - 1);
-            console.log("current state", count);
-            const updateDeliveredValue = { count };
-            const url = `http://localhost:5000/dress/${dressId}`;
-            fetch(url, {
-                method: "PUT",
-                headers: {
-                    "content-type": "application/json",
-                },
-                body: JSON.stringify(updateDeliveredValue),
-            })
-                .then((res) => res.json())
-                .then((data) => {
-                    console.log("delivered", data);
-                });
-        }
+        const url = `http://localhost:5000/dress/${dressId}`;
+        fetch(url, {
+            method: "PUT",
+            headers: {
+                "content-type": "application/json",
+            },
+            body: JSON.stringify(updatedQuentityValue),
+        })
+            .then((res) => res.json())
+            .then((data) => {
+                console.log("value updated", data);
+            });
     };
+
+    const updateDelivered = (event) => {
+        event.preventDefault();
+        const updatedQuentity = count - 1;
+        setCount(updatedQuentity);
+        const updatedQuentityValue = { updatedQuentity };
+        const url = `http://localhost:5000/dress/${dressId}`;
+        fetch(url, {
+            method: "PUT",
+            headers: {
+                "content-type": "application/json",
+            },
+            body: JSON.stringify(updatedQuentityValue),
+        })
+            .then((response) => response.json())
+            .then((data) => {
+                console.log("delivary success", data);
+            });
+    };
+
     return (
         <div>
             <div className="container mt-5">
@@ -77,7 +78,7 @@ const UpdateStock = () => {
                         <p>Available: {count} pieces</p>
                         <p>Supplier: {dress.supplier}</p>
                         <button
-                            onClick={updateRestock}
+                            onClick={updateDelivered}
                             className="details-btn border-0 pt-2 mt-3 pb-2 ps-3 pe-3"
                         >
                             Delivered
