@@ -34,19 +34,29 @@ const Header = () => {
                             </LinkContainer>
 
                             {user ? (
-                                <LinkContainer to="/myitems">
-                                    <Nav.Link>My Items</Nav.Link>
-                                </LinkContainer>
-                            ) : (
-                                <></>
-                            )}
-                            {user ? (
                                 <LinkContainer to="/addnewitem">
                                     <Nav.Link>Add New Item</Nav.Link>
                                 </LinkContainer>
                             ) : (
                                 <></>
                             )}
+
+                            {user ? (
+                                <LinkContainer to="/myitems">
+                                    <Nav.Link>My Items</Nav.Link>
+                                </LinkContainer>
+                            ) : (
+                                <></>
+                            )}
+
+                            {user ? (
+                                <LinkContainer to="/additem">
+                                    <Nav.Link>Add Item</Nav.Link>
+                                </LinkContainer>
+                            ) : (
+                                <></>
+                            )}
+
                             {user ? (
                                 <LinkContainer to="/manageitems">
                                     <Nav.Link>Manage Items</Nav.Link>

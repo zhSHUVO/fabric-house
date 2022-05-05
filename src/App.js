@@ -5,9 +5,10 @@ import Authorized from "./pages/Account/Authorized/Authorized";
 import ForgetPass from "./pages/Account/ForgetPass/ForgetPass";
 import Login from "./pages/Account/Login/Login";
 import Register from "./pages/Account/Register/Register";
+import AddItem from "./pages/AddItem/AddItem";
 import AddNewItem from "./pages/AddNewItem/AddNewItem";
 import Blogs from "./pages/Blogs/Blogs";
-import DressDetails from "./pages/Details/DressDetails/DressDetails";
+import UpdateStock from "./pages/UpdateStock/UpdateStock";
 import Home from "./pages/Home/Home/Home";
 import ManageInventory from "./pages/Home/ManageInventory/ManageInventory";
 import ManageItems from "./pages/ManageItems/ManageItems";
@@ -15,6 +16,7 @@ import MyItems from "./pages/MyItems/MyItems";
 import NotFound from "./pages/Universal/404/NotFound";
 import Footer from "./pages/Universal/Footer/Footer";
 import Header from "./pages/Universal/Header/Header";
+import AllItems from "./pages/Home/AllItems/AllItems";
 
 function App() {
     return (
@@ -34,9 +36,11 @@ function App() {
                 ></Route>
                 <Route
                     path="/dress/:dressId"
-                    element={<Authorized>
-                        <DressDetails></DressDetails>
-                    </Authorized>}
+                    element={
+                        <Authorized>
+                            <UpdateStock></UpdateStock>
+                        </Authorized>
+                    }
                 ></Route>
                 <Route
                     path="/myitems"
@@ -47,11 +51,25 @@ function App() {
                     }
                 ></Route>
                 <Route
+                    path="/additem"
+                    element={
+                        <Authorized>
+                            <AddItem></AddItem>
+                        </Authorized>
+                    }
+                ></Route>
+                <Route
                     path="/manageitems"
                     element={
                         <Authorized>
                             <ManageItems></ManageItems>
                         </Authorized>
+                    }
+                ></Route>
+                <Route
+                    path="/allitems"
+                    element={
+                        <AllItems></AllItems>
                     }
                 ></Route>
                 <Route

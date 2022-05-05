@@ -57,7 +57,9 @@ const ManageInventory = ({ dress }) => {
                                         alt=""
                                     />
                                 </td>
-                                <td className="hidden-column">{dress.price}</td>
+                                <td className="hidden-column">
+                                    {dress.price}$
+                                </td>
                                 <td>{dress.quantity}</td>
                                 <td>
                                     <button

@@ -19,6 +19,11 @@ const Home = () => {
                         Manage Inventory
                     </button>
                 </Link>
+                <Link className="p-5" to="/allitems">
+                    <button className="manage-btn border-0 mt-5 pt-2 pb-2 ps-3 pe-3">
+                        All Items
+                    </button>
+                </Link>
             </div>
         </div>
     );
