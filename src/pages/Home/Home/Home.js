@@ -31,6 +31,7 @@ const Home = () => {
                     </button>
                 </Link>
             </div>
+
             <Container className="text-center mt-5 mb-5">
                 <h1>WHY US</h1>
                 <Row>

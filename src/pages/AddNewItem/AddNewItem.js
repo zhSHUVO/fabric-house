@@ -1,7 +1,10 @@
 import React, { useRef } from "react";
 import { Form } from "react-bootstrap";
+import { useAuthState } from "react-firebase-hooks/auth";
+import auth from "../../firebaseinit";
 
 const AddNewItem = () => {
+    const [user] = useAuthState(auth);
     const itemRef = useRef("");
     const imgRef = useRef("");
     const priceRef = useRef("");
@@ -11,13 +14,24 @@ const AddNewItem = () => {
 
     const addItem = (event) => {
         event.preventDefault();
+
         const name = itemRef.current.value;
+        const userMail = user.email;
         const img = imgRef.current.value;
         const price = priceRef.current.value;
         const quantity = availableRef.current.value;
         const description = desRef.current.value;
         const supplier = supplierRef.current.value;
         const dress = { name, img, description, price, quantity, supplier };
+        const item = {
+            name,
+            userMail,
+            img,
+            description,
+            price,
+            quantity,
+            supplier,
+        };
 
         fetch("http://localhost:5000/dress", {
             method: "POST",
@@ -30,6 +44,20 @@ const AddNewItem = () => {
             .then((data) => {
                 console.log("success", data);
             });
+
+        fetch("http://localhost:5000/item", {
+            method: "POST",
+            headers: {
+                "content-type": "application/json",
+            },
+            body: JSON.stringify(item),
+        })
+            .then((res) => res.json())
+            .then((data) => {
+                console.log("success", data);
+            });
+
+        event.target.reset();
     };
 
     return (

@@ -8,15 +8,15 @@ import Register from "./pages/Account/Register/Register";
 import AddItem from "./pages/AddItem/AddItem";
 import AddNewItem from "./pages/AddNewItem/AddNewItem";
 import Blogs from "./pages/Blogs/Blogs";
-import UpdateStock from "./pages/UpdateStock/UpdateStock";
+import AllItems from "./pages/Home/AllItems/AllItems";
 import Home from "./pages/Home/Home/Home";
 import ManageInventory from "./pages/Home/ManageInventory/ManageInventory";
 import ManageItems from "./pages/ManageItems/ManageItems";
-import MyItems from "./pages/MyItems/MyItems";
+import MyItems from "./pages/MyItems/MyItems/MyItems";
 import NotFound from "./pages/Universal/404/NotFound";
 import Footer from "./pages/Universal/Footer/Footer";
 import Header from "./pages/Universal/Header/Header";
-import AllItems from "./pages/Home/AllItems/AllItems";
+import UpdateStock from "./pages/UpdateStock/UpdateStock";
 
 function App() {
     return (
@@ -66,12 +66,7 @@ function App() {
                         </Authorized>
                     }
                 ></Route>
-                <Route
-                    path="/allitems"
-                    element={
-                        <AllItems></AllItems>
-                    }
-                ></Route>
+                <Route path="/allitems" element={<AllItems></AllItems>}></Route>
                 <Route
                     path="/addnewitem"
                     element={
