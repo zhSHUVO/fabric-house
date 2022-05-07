@@ -16,16 +16,30 @@ const Login = () => {
     const [signInWithEmailAndPassword, user, loading, error] =
         useSignInWithEmailAndPassword(auth);
 
-    const login = (event) => {
+    const login = async (event) => {
         event.preventDefault();
         const email = emailRef.current.value;
         const pass = passRef.current.value;
-        console.log(email, pass);
-        signInWithEmailAndPassword(email, pass);
+
+        await signInWithEmailAndPassword(email, pass);
+
+        const url = "http://localhost:5000/login";
+        fetch(url, {
+            method: "POST",
+            headers: {
+                "content-type": "application/json",
+            },
+            body: JSON.stringify({ email }),
+        })
+            .then((res) => res.json())
+            .then((data) => {
+                localStorage.setItem("accessToken", data.accessToken);
+            });
+        navigate(from, { replace: true });
     };
 
     if (user) {
-        navigate(from, { replace: true });
+        // navigate(from, { replace: true });
     }
 
     return (

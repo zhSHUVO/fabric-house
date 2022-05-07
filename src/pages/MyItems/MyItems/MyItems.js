@@ -1,12 +1,9 @@
 import React from "react";
 import { Table } from "react-bootstrap";
-import { useAuthState } from "react-firebase-hooks/auth";
 import { Link } from "react-router-dom";
-import auth from "../../../firebaseinit";
 import useItem from "../../../hooks/useItem";
 
 const MyItems = () => {
-    
     const [item, setItem] = useItem([]);
 
     const deleteItem = (id) => {

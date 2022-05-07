@@ -20,7 +20,6 @@ const Register = () => {
         const email = emailRef.current.value;
         const pass = passRef.current.value;
         const confirm = confirmRef.current.value;
-        console.log(email, pass, confirm);
         createUserWithEmailAndPassword(email, pass);
     };
 
