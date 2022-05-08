@@ -22,8 +22,7 @@ const AddNewItem = () => {
         const quantity = availableRef.current.value;
         const description = desRef.current.value;
         const supplier = supplierRef.current.value;
-        const dress = { name, img, description, price, quantity, supplier };
-        const item = {
+        const dress = {
             name,
             userMail,
             img,
@@ -42,18 +41,7 @@ const AddNewItem = () => {
         })
             .then((res) => res.json())
             .then((data) => {
-                console.log("success", data);
-            });
-
-        fetch("http://localhost:5000/item", {
-            method: "POST",
-            headers: {
-                "content-type": "application/json",
-            },
-            body: JSON.stringify(item),
-        })
-            .then((res) => res.json())
-            .then((data) => {
+                alert("New Item Added")
                 console.log("success", data);
             });
 

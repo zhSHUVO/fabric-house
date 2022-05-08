@@ -18,3 +18,10 @@
     color: black;
 }
 
+.form-control:focus {
+    color: #666664;
+    background-color: #fff;
+    border-color: #0f0c08;
+    outline: 0;
+    box-shadow: none;
+}

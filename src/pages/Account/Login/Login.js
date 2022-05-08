@@ -36,11 +36,9 @@ const Login = () => {
                 localStorage.setItem("accessToken", data.accessToken);
             });
         navigate(from, { replace: true });
+        
     };
 
-    if (user) {
-        // navigate(from, { replace: true });
-    }
 
     return (
         <div className="form-container">

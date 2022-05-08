@@ -1,5 +1,5 @@
 import React from "react";
-import { Col, Container, Row } from "react-bootstrap";
+import { Col, Container, Form, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import banner from "../../../images/banner.jpg";
 import truck from "../../../images/delivery-truck.png";
@@ -32,7 +32,7 @@ const Home = () => {
                 </Link>
             </div>
 
-            <Container className="text-center mt-5 mb-5">
+            <Container className="text-center w-50 pt-5 mb-5">
                 <h1>WHY US</h1>
                 <Row>
                     <Col sm={6}>
@@ -75,6 +75,34 @@ const Home = () => {
                     </Col>
                 </Row>
             </Container>
+
+            <div className="pt-5">
+                <h3 className="text-center ">Subscribe to our newsuttle</h3>
+                <p className="text-center">
+                    in order not to miss new
+                    arrivals promotions and discounts of our store.
+                </p>
+                <div className=" d-flex justify-content-center">
+                    <Form className="w-50">
+                        <Form.Group
+                            className="mb-4 d-flex"
+                            controlId="formSubscribe"
+                        >
+                            <Form.Control
+                                type="email"
+                                placeholder="Enter email"
+                            />
+                            <button
+                                variant="primary"
+                                className="ms-3 manage-btn border-0 pt-2 pb-2 ps-3 pe-3"
+                                type="submit"
+                            >
+                                Subscribe
+                            </button>
+                        </Form.Group>
+                    </Form>
+                </div>
+            </div>
         </div>
     );
 };

@@ -13,6 +13,7 @@ const SocialLogin = () => {
 
     if (user) {
         navigate(from, { replace: true });
+        console.log(user);
     }
 
     return (
@@ -28,7 +29,7 @@ const SocialLogin = () => {
                     className="border border-danger rounded  d-block mx-auto m-2 pt-2 pb-2 ps-5 pe-5 bg-light"
                 >
                     <img style={{ width: "30px" }} src={google} alt="" />
-                    
+
                     <span className="px-2">Google Sign In</span>
                 </button>
             </div>
