@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import { Form } from "react-bootstrap";
+import { Form, Spinner } from "react-bootstrap";
 import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import auth from "../../../firebaseinit";
@@ -16,6 +16,17 @@ const Login = () => {
     const [signInWithEmailAndPassword, user, loading, error] =
         useSignInWithEmailAndPassword(auth);
 
+    if (loading) {
+        return (
+            <div
+                style={{ height: "300px" }}
+                className="w-100 d-flex justify-content-center align-items-center"
+            >
+                <Spinner animation="border" variant="warning" />
+            </div>
+        );
+    }
+
     const login = async (event) => {
         event.preventDefault();
         const email = emailRef.current.value;
@@ -23,7 +34,7 @@ const Login = () => {
 
         await signInWithEmailAndPassword(email, pass);
 
-        const url = "http://localhost:5000/login";
+        const url = "https://obscure-earth-50907.herokuapp.com/login";
         fetch(url, {
             method: "POST",
             headers: {
@@ -35,10 +46,9 @@ const Login = () => {
             .then((data) => {
                 localStorage.setItem("accessToken", data.accessToken);
             });
-        navigate(from, { replace: true });
-        
-    };
 
+        navigate(from, { replace: true });
+    };
 
     return (
         <div className="form-container">

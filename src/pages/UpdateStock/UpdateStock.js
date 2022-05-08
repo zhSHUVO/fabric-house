@@ -9,7 +9,7 @@ const UpdateStock = () => {
 
     const [dress, setDress] = useState([]);
     useEffect(() => {
-        const url = `http://localhost:5000/dress/${dressId}`;
+        const url = `https://obscure-earth-50907.herokuapp.com/dress/${dressId}`;
         fetch(url)
             .then((res) => res.json())
             .then((data) => setDress(data));
@@ -17,7 +17,7 @@ const UpdateStock = () => {
 
     const [count, setCount] = useState([]);
     useEffect(() => {
-        const url = `http://localhost:5000/dress/${dressId}`;
+        const url = `https://obscure-earth-50907.herokuapp.com/dress/${dressId}`;
         fetch(url)
             .then((res) => res.json())
             .then((data) => setCount(data.quantity));
@@ -30,7 +30,7 @@ const UpdateStock = () => {
         setCount(updatedQuentity);
         const updatedQuentityValue = { updatedQuentity };
 
-        const url = `http://localhost:5000/dress/${dressId}`;
+        const url = `https://obscure-earth-50907.herokuapp.com/dress/${dressId}`;
         fetch(url, {
             method: "PUT",
             headers: {
@@ -49,7 +49,7 @@ const UpdateStock = () => {
         const updatedQuentity = count - 1;
         setCount(updatedQuentity);
         const updatedQuentityValue = { updatedQuentity };
-        const url = `http://localhost:5000/dress/${dressId}`;
+        const url = `https://obscure-earth-50907.herokuapp.com/dress/${dressId}`;
         fetch(url, {
             method: "PUT",
             headers: {

@@ -7,11 +7,11 @@ const useItem = () => {
     const [item, setItem] = useState([]);
     useEffect(() => {
         const email = user?.email;
-        const url = `http://localhost:5000/item?email=${email}`;
+        const url = `https://obscure-earth-50907.herokuapp.com/item?email=${email}`;
         fetch(url, {
             method: "GET",
             headers: {
-                "authorization":`Bearer ${localStorage.getItem("accessToken")}`,
+                authorization: `Bearer ${localStorage.getItem("accessToken")}`,
                 "content-type": "application/json",
             },
         })

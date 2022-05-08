@@ -1,3 +1,20 @@
-# Getting Started with Create React App
+# <b>Fabric House</b>
 
-[Create React App](https://github.com/facebook/create-react-app).
+visit <i><b>fabric house</b></i> [here](https://fabric-house-99700.web.app/)
+
+We have the largest warehouse in the country. You can book and store anything you relate to fabric. Come visit us, then if you want, we can help you with the booking process.
+
+# Technology used to build this website
+
+-   react
+-   react router
+-   react icons
+-   react firebase hooks
+-   react bootstrap
+-   bootstrap
+-   react bootstrap
+-   mongodb
+-   mongodb atlas
+-   firebase
+-   hosted in firebase and heroku
+-   version controlled in git

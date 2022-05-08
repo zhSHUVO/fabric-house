@@ -11,7 +11,7 @@ const ManageInventory = ({ dress }) => {
         const proceed = window.confirm("Are you sure you want to delete?");
         if (proceed) {
             console.log("deleting ", id);
-            const url = `http://localhost:5000/dress/${id}`;
+            const url = `https://obscure-earth-50907.herokuapp.com/dress/${id}`;
 
             fetch(url, {
                 method: "DELETE",

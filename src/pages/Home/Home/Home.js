@@ -77,10 +77,10 @@ const Home = () => {
             </Container>
 
             <div className="pt-5">
-                <h3 className="text-center ">Subscribe to our newsuttle</h3>
+                <h3 className="text-center ">Subscribe to our newsletter</h3>
                 <p className="text-center">
-                    in order not to miss new
-                    arrivals promotions and discounts of our store.
+                    in order not to miss new arrivals promotions and discounts
+                    of our store.
                 </p>
                 <div className=" d-flex justify-content-center">
                     <Form className="w-50">

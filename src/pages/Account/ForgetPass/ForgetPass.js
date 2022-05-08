@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Form } from "react-bootstrap";
+import { Form, Spinner } from "react-bootstrap";
 import { useSendPasswordResetEmail } from "react-firebase-hooks/auth";
 import { Link } from "react-router-dom";
 import auth from "../../../firebaseinit";
@@ -7,8 +7,19 @@ import "./ForgetPass.css";
 
 const ForgetPass = () => {
     const [email, setEmail] = useState("");
-    const [sendPasswordResetEmail, sending, error] =
+    const [sendPasswordResetEmail, sending, loading, error] =
         useSendPasswordResetEmail(auth);
+
+    if (loading) {
+        return (
+            <div
+                style={{ height: "300px" }}
+                className="w-100 d-flex justify-content-center align-items-center"
+            >
+                <Spinner animation="border" variant="warning" />
+            </div>
+        );
+    }
 
     if (error) {
         return (
@@ -17,6 +28,7 @@ const ForgetPass = () => {
             </div>
         );
     }
+
     if (sending) {
         return <p>Sending...</p>;
     }

@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import { Form } from "react-bootstrap";
+import { Form, Spinner } from "react-bootstrap";
 import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
 import { Link, useNavigate } from "react-router-dom";
 import auth from "../../../firebaseinit";
@@ -14,6 +14,17 @@ const Register = () => {
         useCreateUserWithEmailAndPassword(auth, {
             sendEmailVerification: true,
         });
+
+    if (loading) {
+        return (
+            <div
+                style={{ height: "300px" }}
+                className="w-100 d-flex justify-content-center align-items-center"
+            >
+                <Spinner animation="border" variant="warning" />
+            </div>
+        );
+    }
 
     const reg = (event) => {
         event.preventDefault();

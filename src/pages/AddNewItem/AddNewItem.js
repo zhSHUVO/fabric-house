@@ -32,7 +32,7 @@ const AddNewItem = () => {
             supplier,
         };
 
-        fetch("http://localhost:5000/dress", {
+        fetch("https://obscure-earth-50907.herokuapp.com/dress", {
             method: "POST",
             headers: {
                 "content-type": "application/json",
@@ -41,7 +41,7 @@ const AddNewItem = () => {
         })
             .then((res) => res.json())
             .then((data) => {
-                alert("New Item Added")
+                alert("New Item Added");
                 console.log("success", data);
             });
 
