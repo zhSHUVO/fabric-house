@@ -10,7 +10,7 @@ const Register = () => {
     const confirmRef = useRef("");
     const navigate = useNavigate();
 
-    const [createUserWithEmailAndPassword, user, loading, error] =
+    const [createUserWithEmailAndPassword, user, loading] =
         useCreateUserWithEmailAndPassword(auth, {
             sendEmailVerification: true,
         });
@@ -30,7 +30,6 @@ const Register = () => {
         event.preventDefault();
         const email = emailRef.current.value;
         const pass = passRef.current.value;
-        const confirm = confirmRef.current.value;
         createUserWithEmailAndPassword(email, pass);
     };
 

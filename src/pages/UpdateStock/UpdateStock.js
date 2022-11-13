@@ -13,7 +13,7 @@ const UpdateStock = () => {
         fetch(url)
             .then((res) => res.json())
             .then((data) => setDress(data));
-    }, []);
+    }, [dressId]);
 
     const [count, setCount] = useState([]);
     useEffect(() => {
@@ -21,7 +21,7 @@ const UpdateStock = () => {
         fetch(url)
             .then((res) => res.json())
             .then((data) => setCount(data.quantity));
-    }, []);
+    }, [dressId]);
 
     const updateRestock = (event) => {
         event.preventDefault();

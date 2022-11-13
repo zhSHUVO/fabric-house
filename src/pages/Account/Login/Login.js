@@ -13,7 +13,7 @@ const Login = () => {
     const location = useLocation();
     const from = location.state?.from?.pathname || "/home";
 
-    const [signInWithEmailAndPassword, user, loading, error] =
+    const [signInWithEmailAndPassword,  loading] =
         useSignInWithEmailAndPassword(auth);
 
     if (loading) {

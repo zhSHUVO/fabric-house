@@ -4,7 +4,7 @@ import SingleDress from "../SingleDress/SingleDress";
 import "./DisplayItems.css";
 
 const DisplayItems = () => {
-    const [dresses, setDresses] = useDress();
+    const [dresses] = useDress();
     return (
         <div>
             <h1 className="text-center">Featured Items</h1>

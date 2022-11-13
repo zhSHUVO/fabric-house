@@ -3,7 +3,7 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../firebaseinit";
 
 const useItem = () => {
-    const [user, loading] = useAuthState(auth);
+    const [user] = useAuthState(auth);
     const [item, setItem] = useState([]);
     useEffect(() => {
         const email = user?.email;
@@ -17,7 +17,7 @@ const useItem = () => {
         })
             .then((res) => res.json())
             .then((data) => setItem(data));
-    }, []);
+    }, [user?.email]);
     return [item, setItem];
 };
 

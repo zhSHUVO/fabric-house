@@ -3,7 +3,7 @@ import useDress from "../../../hooks/useDress";
 import SingleDress from "../SingleDress/SingleDress";
 
 const AllItems = () => {
-    const [dresses, setDresses] = useDress();
+    const [dresses] = useDress();
     return (
         <div>
             <h1 className="text-center">Featured Items</h1>
