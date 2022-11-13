@@ -32,7 +32,7 @@ const Login = () => {
 
         await signInWithEmailAndPassword(email, pass);
 
-        const url = "http://localhost:5000/login";
+        const url = "https://fabric-house-server.onrender.com/login";
         fetch(url, {
             method: "POST",
             headers: {

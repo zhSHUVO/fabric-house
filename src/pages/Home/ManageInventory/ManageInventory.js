@@ -11,7 +11,7 @@ const ManageInventory = ({ dress }) => {
         const proceed = window.confirm("Are you sure you want to delete?");
         if (proceed) {
             console.log("deleting ", id);
-            const url = `http://localhost:5000/dress/${id}`;
+            const url = `https://fabric-house-server.onrender.com/dress/${id}`;
 
             fetch(url, {
                 method: "DELETE",

@@ -11,7 +11,7 @@ const SocialLogin = () => {
 
     if (user) {
         const email = user.user.email;
-        const url = "http://localhost:5000/login";
+        const url = "https://fabric-house-server.onrender.com/login";
         fetch(url, {
             method: "POST",
             headers: {

@@ -4,7 +4,7 @@ const useDress = () => {
     const [dresses, setDresses] = useState([]);
 
     useEffect(() => {
-        fetch("http://localhost:5000/dress")
+        fetch("https://fabric-house-server.onrender.com/dress")
             .then((res) => res.json())
             .then((data) => setDresses(data));
     }, []);

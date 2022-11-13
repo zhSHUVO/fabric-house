@@ -32,7 +32,7 @@ const AddNewItem = () => {
             supplier,
         };
 
-        fetch("http://localhost:5000/dress", {
+        fetch("https://fabric-house-server.onrender.com/dress", {
             method: "POST",
             headers: {
                 "content-type": "application/json",
