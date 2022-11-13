@@ -1,6 +1,6 @@
 import React from "react";
 import { useSignInWithGoogle } from "react-firebase-hooks/auth";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import auth from "../../../firebaseinit";
 import google from "../../../images/google.png";
 import "./SocialLogin.css";
@@ -8,12 +8,23 @@ import "./SocialLogin.css";
 const SocialLogin = () => {
     const [signInWithGoogle, user] = useSignInWithGoogle(auth);
     const navigate = useNavigate();
-    const location = useLocation();
-    const from = location.state?.from?.pathname || "/home";
 
     if (user) {
-        navigate(from, { replace: true });
-        console.log(user);
+        const email = user.user.email;
+        const url = "http://localhost:5000/login";
+        fetch(url, {
+            method: "POST",
+            headers: {
+                "content-type": "application/json",
+            },
+            body: JSON.stringify({ email }),
+        })
+            .then((res) => res.json())
+            .then((data) => {
+                localStorage.setItem("accessToken", data.accessToken);
+            });
+
+        navigate("/home");
     }
 
     return (

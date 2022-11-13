@@ -6,8 +6,8 @@ const useItem = () => {
     const [user] = useAuthState(auth);
     const [item, setItem] = useState([]);
     useEffect(() => {
-        const email = user?.email;
-        const url = `https://obscure-earth-50907.herokuapp.com/item?email=${email}`;
+        const email = user.email;
+        const url = `http://localhost:5000/item?email=${email}`;
         fetch(url, {
             method: "GET",
             headers: {
@@ -17,6 +17,7 @@ const useItem = () => {
         })
             .then((res) => res.json())
             .then((data) => setItem(data));
+            
     }, [user?.email]);
     return [item, setItem];
 };

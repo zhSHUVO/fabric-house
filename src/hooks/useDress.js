@@ -4,7 +4,7 @@ const useDress = () => {
     const [dresses, setDresses] = useState([]);
 
     useEffect(() => {
-        fetch("https://obscure-earth-50907.herokuapp.com/dress")
+        fetch("http://localhost:5000/dress")
             .then((res) => res.json())
             .then((data) => setDresses(data));
     }, []);

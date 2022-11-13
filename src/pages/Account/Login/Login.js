@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 import { Form, Spinner } from "react-bootstrap";
 import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import auth from "../../../firebaseinit";
 import SocialLogin from "../SocialLogin/SocialLogin";
 import "./Login.css";
@@ -10,10 +10,8 @@ const Login = () => {
     const emailRef = useRef("");
     const passRef = useRef("");
     const navigate = useNavigate();
-    const location = useLocation();
-    const from = location.state?.from?.pathname || "/home";
 
-    const [signInWithEmailAndPassword,  loading] =
+    const [signInWithEmailAndPassword, loading] =
         useSignInWithEmailAndPassword(auth);
 
     if (loading) {
@@ -34,7 +32,7 @@ const Login = () => {
 
         await signInWithEmailAndPassword(email, pass);
 
-        const url = "https://obscure-earth-50907.herokuapp.com/login";
+        const url = "http://localhost:5000/login";
         fetch(url, {
             method: "POST",
             headers: {
@@ -47,7 +45,7 @@ const Login = () => {
                 localStorage.setItem("accessToken", data.accessToken);
             });
 
-        navigate(from, { replace: true });
+        navigate("/home");
     };
 
     return (

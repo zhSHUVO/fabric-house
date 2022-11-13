@@ -10,7 +10,7 @@ const MyItems = () => {
         const proceed = window.confirm("Are you sure you want to delete?");
         if (proceed) {
             console.log("deleting ", id);
-            const itemUrl = `https://obscure-earth-50907.herokuapp.com/item/${id}`;
+            const itemUrl = `http://localhost:5000/item/${id}`;
 
             fetch(itemUrl, {
                 method: "DELETE",
